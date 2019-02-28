@@ -22,7 +22,7 @@ namespace SwiftPOS_Database_Utility
             Properties.Settings.Default.IP = tbIPAddress.Text;
             Properties.Settings.Default.Username = tbUsername.Text;
             Properties.Settings.Default.Password = tbPassword.Text;
-            Properties.Settings.Default.DatabaseName = tbDatabase.Text;
+            Properties.Settings.Default.DatabaseName = cbDatabase.SelectedItem.ToString();
             Properties.Settings.Default.Save();
             Close();
         }
@@ -32,7 +32,23 @@ namespace SwiftPOS_Database_Utility
             tbIPAddress.Text = Properties.Settings.Default.IP;
             tbUsername.Text = Properties.Settings.Default.Username;
             tbPassword.Text = Properties.Settings.Default.Password;
-            tbDatabase.Text = Properties.Settings.Default.DatabaseName;
+            cbDatabase.Text = Properties.Settings.Default.DatabaseName;
+        }
+
+        private void comboBox1_DropDown(object sender, EventArgs e)
+        {
+            DBHelper dbHelper = new DBHelper();
+            dbHelper.ConnectNoDB();
+            DataTable dbList = dbHelper.GetQuery("SELECT name FROM master.sys.databases");
+            foreach(DataRow dr in dbList.Rows)
+            {
+                //Yes this is ugly
+                if(!dr["name"].ToString().Equals("master") && !dr["name"].ToString().Equals("tempdb") && !dr["name"].ToString().Equals("model") && !dr["name"].ToString().Equals("msdb"))
+                {
+                    cbDatabase.Items.Add(dr["name"]);
+                }
+            }
+            dbHelper.CloseConnection();
         }
     }
 }

@@ -35,7 +35,7 @@ namespace SwiftPOS_Database_Utility
         private void ConnectSQL()
         {
             dbHelper.Connect();
-            dgvSQL.DataSource = dbHelper.GetQuery("SELECT * FROM " + "dbo.ProductTable");
+            dgvSQL.DataSource = dbHelper.GetQuery("SELECT name FROM master.sys.databases");
             //dgvSQL.DataSource = dbHelper.GetQuery("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'");
             PopulateTreeView();
         }
@@ -47,6 +47,7 @@ namespace SwiftPOS_Database_Utility
 
         private void PopulateTreeView()
         {
+            tvTables.Nodes.Clear();
             DataTable db = dbHelper.GetQuery("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'");
             DataView dv = db.DefaultView;
             dv.Sort = "TABLE_NAME ASC";

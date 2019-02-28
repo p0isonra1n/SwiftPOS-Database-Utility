@@ -31,13 +31,13 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbIPAddress = new System.Windows.Forms.TextBox();
-            this.tbUsername = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbDatabase = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbIPAddress = new System.Windows.Forms.TextBox();
+            this.cbDatabase = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tbDatabase);
+            this.groupBox1.Controls.Add(this.cbDatabase);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tbPassword);
             this.groupBox1.Controls.Add(this.label3);
@@ -77,28 +77,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Connection Settings";
             // 
-            // tbIPAddress
+            // label4
             // 
-            this.tbIPAddress.Location = new System.Drawing.Point(86, 19);
-            this.tbIPAddress.Name = "tbIPAddress";
-            this.tbIPAddress.Size = new System.Drawing.Size(169, 20);
-            this.tbIPAddress.TabIndex = 2;
-            // 
-            // tbUsername
-            // 
-            this.tbUsername.Location = new System.Drawing.Point(86, 45);
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(169, 20);
-            this.tbUsername.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Username:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Database:";
             // 
             // tbPassword
             // 
@@ -116,21 +102,37 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Password:";
             // 
-            // tbDatabase
+            // tbUsername
             // 
-            this.tbDatabase.Location = new System.Drawing.Point(86, 97);
-            this.tbDatabase.Name = "tbDatabase";
-            this.tbDatabase.Size = new System.Drawing.Size(169, 20);
-            this.tbDatabase.TabIndex = 8;
+            this.tbUsername.Location = new System.Drawing.Point(86, 45);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(169, 20);
+            this.tbUsername.TabIndex = 4;
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Database:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Username:";
+            // 
+            // tbIPAddress
+            // 
+            this.tbIPAddress.Location = new System.Drawing.Point(86, 19);
+            this.tbIPAddress.Name = "tbIPAddress";
+            this.tbIPAddress.Size = new System.Drawing.Size(169, 20);
+            this.tbIPAddress.TabIndex = 2;
+            // 
+            // cbDatabase
+            // 
+            this.cbDatabase.FormattingEnabled = true;
+            this.cbDatabase.Location = new System.Drawing.Point(86, 97);
+            this.cbDatabase.Name = "cbDatabase";
+            this.cbDatabase.Size = new System.Drawing.Size(169, 21);
+            this.cbDatabase.TabIndex = 8;
+            this.cbDatabase.DropDown += new System.EventHandler(this.comboBox1_DropDown);
             // 
             // DatabaseConnection
             // 
@@ -153,12 +155,12 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tbDatabase;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbIPAddress;
+        private System.Windows.Forms.ComboBox cbDatabase;
     }
 }
